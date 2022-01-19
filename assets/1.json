@@ -1,0 +1,19 @@
+{
+    "name": "PETER SKATER",
+    "symbol": "",
+    "image": "0.png",
+    "properties": {
+      "files": [
+        {
+          "uri": "0.png",
+          "type": "image/png"
+        }
+      ],
+      "creators": [
+        {
+          "address": "EWN4Y1dUhTdbXSA24zm5LAX1LLwyz7HtCgaKnhryKM8A",
+          "share": 100
+        }
+      ]
+    }
+  }
