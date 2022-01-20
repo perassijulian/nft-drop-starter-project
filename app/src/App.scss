@@ -1,20 +1,70 @@
-.App {
-  height: 100vh;
-  background-color: rgb(20, 20, 20);
-  overflow: scroll;
-  text-align: center;
-  overflow: hidden;
+@import './Variables.scss';
+
+body {
+    margin: 0%;
+    font-family: $Inter;
+    background: -webkit-linear-gradient(left, $mainColor, $secColor);
+    background-size: 200% 200%;
+    animation: gradient-animation 4s ease infinite;
+    color: #fff;
 }
 
-.container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  padding: 0 30px 0 30px;
-  color: white;
-  position: relative;
-  /* background-color: #35aee2; */
+.navbar{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: $mainColor;
+    height: 80px;
+    width: 100%;
+    border-bottom: 2px solid $secColor;
+
+    &--logo{
+        margin-left: 30px;
+        font-size: $mdText;
+    }
+    &--list{
+        display:flex;
+        list-style-type: none;
+        margin-right: 30px;
+
+        &--item{
+            padding: 10px;
+            font-size: $smText;
+            
+        }
+    }
+}
+
+.main{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+    &--text{
+        width: 640px;
+        text-align: center;
+    }
+    
+    &--showcase{
+        display: flex;
+        justify-content: space-between;
+        width: 1020px;
+        margin: 20px;
+
+        &--box{
+            text-align: center;
+        }
+        
+        &--image{
+            height: 360px;
+        }
+
+        //SHOULD BE INCLUDED ON THE .GIF
+        &--text{
+            margin-top: -70px;
+            color: #000;
+        }
+    }
 }
 
 .authed-container {
@@ -24,9 +74,6 @@
   padding: 30px;
 }
 
-.header-container {
-  /* background-color: #60c657; */
-}
 
 .header {
   margin: 0;
@@ -58,6 +105,7 @@
 }
 
 .connect-wallet-button {
+  margin-top: 100px;
   color: white;
   background: -webkit-linear-gradient(left, #ff8867, #ff52ff);
   background-size: 200% 200%;

@@ -1,10 +1,12 @@
 import React, {useEffect, useState} from 'react';
-import './App.css';
+import './App.scss';
 import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
+import doggos from './assets/doggos.gif';
+import Navbar from './Navbar/Navbar';
 
 // Constants
-const TWITTER_HANDLE = '_buildspace';
+const TWITTER_HANDLE = 'julianPerassi';
 const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
@@ -47,9 +49,6 @@ const App = () => {
       Connect to Wallet
     </button>
   )
-
-
-
   
   useEffect(() => {
     const onLoad = async () => {
@@ -60,27 +59,46 @@ const App = () => {
   }, [])
 
   return (
-    <div className="App">
-      <div className="container">
-        <div className="header-container">
-          <p className="header">🍭 Candy Drop</p>
-          <p className="sub-text">NFT drop machine with fair mint</p>
+    <div className='App'>
+      <Navbar />
+      <div className='main'>
+          <div className='main--text'>
+              <h1>Too late to save Deadie</h1>
+              <p>We are sorry to tell you this but there is no other way. 
+              Deadie is gone due to climate change and if we do nothing soon 
+              his friends will join him. We think the best way to remember him 
+              is as he would have wanted, by having one of his many photos as 
+              a profile picture. Don't miss our March 15 release!</p>
+          </div>
+          <div className='main--showcase'>
+              <div className='main--showcase--box'>
+                <img src={doggos} className='main--showcase--image'></img>
+                <h2 className='main--showcase--text'>SPECIAL</h2>
+              </div>
+              <div className='main--showcase--box'>
+                <img src={doggos} className='main--showcase--image'></img>    
+                <h2 className='main--showcase--text'>RARE</h2>
+              </div>
+              <div className='main--showcase--box'>
+                <img src={doggos} className='main--showcase--image'></img>  
+                <h2 className='main--showcase--text'>UNCOMMON</h2>
+              </div>    
+          </div>
           {!walletAddress && renderNotConnectedContainer()}
-        </div>
-          {/* Check for walletAddress and then pass in walletAddress */}
-        {walletAddress && <CandyMachine walletAddress={window.solana} />}
-        <div className="footer-container">
-          <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
-          <a
-            className="footer-text"
-            href={TWITTER_LINK}
-            target="_blank"
-            rel="noreferrer"
-          >{`built on @${TWITTER_HANDLE}`}</a>
-        </div>
+            {/* Check for walletAddress and then pass in walletAddress */}
+          {walletAddress && <CandyMachine walletAddress={window.solana} />}
+          <div className="footer-container">
+            <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
+            <a
+              className="footer-text"
+              href={TWITTER_LINK}
+              target="_blank"
+              rel="noreferrer"
+            >{`built by @${TWITTER_HANDLE}`}</a>
+          </div>
       </div>
     </div>
-  );
+    );
 };
 
 export default App;
