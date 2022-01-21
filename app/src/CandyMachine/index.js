@@ -3,7 +3,7 @@ import { Connection, PublicKey } from '@solana/web3.js';
 import { Program, Provider, web3 } from '@project-serum/anchor';
 import { MintLayout, TOKEN_PROGRAM_ID, Token } from '@solana/spl-token';
 import { sendTransactions } from './connection';
-import './CandyMachine.css';
+import './CandyMachine.scss';
 import CountdownTimer from '../CountdownTimer';
 import {
   candyMachineProgram,
@@ -108,7 +108,8 @@ const CandyMachine = ({ walletAddress }) => {
   const renderDropTimer = () => {
     // Get the current date and dropDate in a JavaScript Date object
     const currentDate = new Date();
-    const dropDate = new Date(candyMachine.state.goLiveData * 1000);
+    //const dropDate = new Date(candyMachine.state.goLiveData * 1000);
+    const dropDate = new Date();
 
     // If currentDate is before dropDate, render our Countdown component
     if (currentDate < dropDate) {
@@ -118,7 +119,7 @@ const CandyMachine = ({ walletAddress }) => {
     }
     
     // Else let's just return the current drop date
-    return <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>;
+    //return <p>{`Drop Date: ${candyMachine.state.goLiveDateTimeString}`}</p>;
   };
 
   const getCandyMachineState = async () => {
@@ -414,19 +415,22 @@ const CandyMachine = ({ walletAddress }) => {
     candyMachine && (
       <div className="machine-container">
         {renderDropTimer()}
-        <p>{`Items Minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
-        {/* Check to see if these properties are equal! */}
-        {candyMachine.state.itemsRedeemed === candyMachine.state.itemsAvailable ? (
-          <p className="sub-text">Sold Out 🙊</p>
-        ) : (
-          <button
-            className="cta-button mint-button"
-            onClick={mintToken}
-            disabled={isMinting}
-          >
-            Mint NFT
-          </button>
-        )}
+        
+        {!renderDropTimer() && <div className='mint-container'>
+          <p>{`Items minted: ${candyMachine.state.itemsRedeemed} / ${candyMachine.state.itemsAvailable}`}</p>
+          {/* Check to see if these properties are equal! */}
+          {candyMachine.state.itemsRedeemed === candyMachine.state.itemsAvailable ? (
+            <p className="sub-text">Sold Out 🙊</p>
+          ) : (
+            <button
+              className="cta-button mint-button"
+              onClick={mintToken}
+              disabled={isMinting}
+            >
+              Mint NFT
+            </button>
+          )}
+        </div>}
       </div>
     )
   );

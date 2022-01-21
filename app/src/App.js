@@ -1,13 +1,8 @@
 import React, {useEffect, useState} from 'react';
 import './App.scss';
-import twitterLogo from './assets/twitter-logo.svg';
 import CandyMachine from './CandyMachine';
 import doggos from './assets/doggos.gif';
 import Navbar from './Navbar/Navbar';
-
-// Constants
-const TWITTER_HANDLE = 'julianPerassi';
-const TWITTER_LINK = `https://twitter.com/${TWITTER_HANDLE}`;
 
 const App = () => {
   const [walletAddress, setWalletAddress] = useState(null);
@@ -63,7 +58,7 @@ const App = () => {
       <Navbar />
       <div className='main'>
           <div className='main--text'>
-              <h1>Too late to save Deadie</h1>
+              <h1>TOO LATE TO SAVE DEADIE</h1>
               <p>We are sorry to tell you this but there is no other way. 
               Deadie is gone due to climate change and if we do nothing soon 
               his friends will join him. We think the best way to remember him 
@@ -87,15 +82,6 @@ const App = () => {
           {!walletAddress && renderNotConnectedContainer()}
             {/* Check for walletAddress and then pass in walletAddress */}
           {walletAddress && <CandyMachine walletAddress={window.solana} />}
-          <div className="footer-container">
-            <img alt="Twitter Logo" className="twitter-logo" src={twitterLogo} />
-            <a
-              className="footer-text"
-              href={TWITTER_LINK}
-              target="_blank"
-              rel="noreferrer"
-            >{`built by @${TWITTER_HANDLE}`}</a>
-          </div>
       </div>
     </div>
     );

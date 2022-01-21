@@ -1,0 +1,22 @@
+@import '../Variables.scss';
+
+.timer-container{
+  margin-top: 40px;
+  padding: 3px 80px;
+  background: -webkit-linear-gradient(left, #ff8867, #ff52ff);
+  background-size: 200% 200%;
+  animation: gradient-animation 4s ease infinite;
+  border-radius: 20px;
+  cursor: default;
+  
+
+  .timer-header {
+    font-size: $mdText;
+    font-weight: bold;
+  }
+
+  .timer-value {
+    font-size: $mdText;
+    text-align: center;
+  }
+}

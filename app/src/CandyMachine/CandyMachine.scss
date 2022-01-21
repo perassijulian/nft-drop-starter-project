@@ -1,0 +1,18 @@
+@import '../Variables.scss';
+
+.machine-container {
+  display: flex;
+  flex-direction: column;
+}
+
+
+.mint-container{
+  margin-top: 40px;
+
+  p{
+    font-size: $smText;
+    letter-spacing: 0.07em;
+    text-align: center;
+    margin-bottom: 30px;
+  }
+}
